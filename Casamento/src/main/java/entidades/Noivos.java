@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Usuario implements Serializable
+public class Noivos implements Serializable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +33,11 @@ public class Usuario implements Serializable
     @JoinColumn(name = "id_cerimonia", referencedColumnName = "id")
     private Cerimonia cerimonia;
 
-    public Usuario()
+    public Noivos()
     {
     }
 
-    public Usuario(Cerimonia c, String nome, String email, String senha)
+    public Noivos(Cerimonia c, String nome, String email, String senha)
     {
         this.cerimonia = c;
         this.nome = nome;

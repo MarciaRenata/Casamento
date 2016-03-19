@@ -27,6 +27,9 @@ public class Convidado implements Serializable
     @Column
     String telefone;
     
+    @Column
+    int qnt_senhas;
+    
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_cerimonia", referencedColumnName = "id")
     private Cerimonia cerimonia;

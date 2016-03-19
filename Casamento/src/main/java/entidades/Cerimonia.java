@@ -51,7 +51,7 @@ public class Cerimonia implements Serializable
     //uma cerimonia to many usuarios, pois o casal pode editar a cerimonia
     @OneToMany(mappedBy = "cerimonia", fetch = FetchType.LAZY, 
             cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Usuario> usuarios;
+    private List<Noivos> usuarios;
     
     //uma cerimonia to many usuarios, pois o casal pode editar a cerimonia
     @OneToMany(mappedBy = "cerimonia", fetch = FetchType.LAZY, 
@@ -62,7 +62,7 @@ public class Cerimonia implements Serializable
     {
     }
 
-    public Cerimonia(String horaInicio, String horaFim, String dataCerimonia, Localizacao id_localizacao, Buffet id_buffet, Fotografo id_fotografo, List<Presente> presentes, List<Usuario> usuarios, List<Convidado> convidados)
+    public Cerimonia(String horaInicio, String horaFim, String dataCerimonia, Localizacao id_localizacao, Buffet id_buffet, Fotografo id_fotografo, List<Presente> presentes, List<Noivos> usuarios, List<Convidado> convidados)
     {
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
@@ -157,12 +157,12 @@ public class Cerimonia implements Serializable
         this.presentes = presentes;
     }
 
-    public List<Usuario> getUsuarios()
+    public List<Noivos> getUsuarios()
     {
         return usuarios;
     }
 
-    public void setUsuarios(List<Usuario> usuarios)
+    public void setUsuarios(List<Noivos> usuarios)
     {
         this.usuarios = usuarios;
     } 

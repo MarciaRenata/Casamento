@@ -6,7 +6,7 @@ import entidades.Convidado;
 import entidades.Fotografo;
 import entidades.Localizacao;
 import entidades.Presente;
-import entidades.Usuario;
+import entidades.Noivos;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,12 +43,12 @@ public class Montar
         return presentes;
     }
     
-    public static List<Usuario> montarCasal(Cerimonia c)
+    public static List<Noivos> montarCasal(Cerimonia c)
     {
-        Usuario u1 = new Usuario(c, "Clerron", "paulomenzs@gmail.com", "1234");
-        Usuario u2 = new Usuario(c, "Natalia", "rayanasls@gmail.com", "5678");
+        Noivos u1 = new Noivos(c, "Clerron", "paulomenzs@gmail.com", "1234");
+        Noivos u2 = new Noivos(c, "Natalia", "rayanasls@gmail.com", "5678");
         
-        List<Usuario> usuarios = new ArrayList<Usuario>();
+        List<Noivos> usuarios = new ArrayList<Noivos>();
         
         usuarios.add(u1);
         usuarios.add(u2);
@@ -69,7 +69,7 @@ public class Montar
         return convidados;
     }
     
-    public static Cerimonia montarCerimonia(Cerimonia c, Localizacao l, Buffet b, Fotografo f, List<Presente> presentes, List<Usuario> casal, List<Convidado> convidados)
+    public static Cerimonia montarCerimonia(Cerimonia c, Localizacao l, Buffet b, Fotografo f, List<Presente> presentes, List<Noivos> casal, List<Convidado> convidados)
     {
         
         c.setConvidados(convidados);

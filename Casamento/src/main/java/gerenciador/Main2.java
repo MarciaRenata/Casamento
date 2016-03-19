@@ -7,7 +7,7 @@ import entidades.Convidado;
 import entidades.Fotografo;
 import entidades.Localizacao;
 import entidades.Presente;
-import entidades.Usuario;
+import entidades.Noivos;
 import java.util.List;
 
 public class Main2
@@ -26,7 +26,7 @@ public class Main2
             Cerimonia c = new Cerimonia();
 
             List<Presente> presentes = Montar.montarListaPresentes(c);
-            List<Usuario> casal = Montar.montarCasal(c);
+            List<Noivos> casal = Montar.montarCasal(c);
             List<Convidado> convidados = Montar.convidarPessoas(c);
 
             c = Montar.montarCerimonia(c, l, b, f, presentes, casal, convidados);
