@@ -17,16 +17,16 @@ public class Noivo implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column
+    @Column(name = "txt_nome")
     private String nome;
     
-    @Column
+    @Column(name = "txt_email")
     private String email;
     
-    @Column
+    @Column(name = "txt_senha")
     private String senha;  
     
-    @Column
+    @Column(name = "txt_telefone")
     private String telefone; 
     
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

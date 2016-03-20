@@ -19,16 +19,16 @@ public class Presente implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column
+    @Column(name = "txt_nome")
     private String nome;
     
     @Enumerated(EnumType.STRING)
     PresenteCategoria categoria;
     
-    @Column
+    @Column(name = "txt_descricao")
     private String descricao;
     
-    @Column
+    @Column(name = "txt_ondeEncontrar")
     private String ondeEncontrar;
     
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

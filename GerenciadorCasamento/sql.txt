@@ -1,38 +1,39 @@
 create table localizacao
 (
 	id serial primary key,
-	logradouro varchar(100),
-	bairro varchar(100),
-	cep varchar(100),
-        cidade varchar(100),
-	numero int 
+	txt_logradouro varchar(100),
+        txt_complemento varchar(100),
+	txt_bairro varchar(100),
+	txt_cep varchar(100),
+        txt_cidade varchar(100),
+	numero_numero int 
 );
 
 create table buffet
 (
 	id serial primary key,
-	fornecedor varchar(100),
-	valorTotal real,
-	qtdSalgados int,
-	qtdDoces int,
-	valorBolo real
+	txt_fornecedor varchar(100),
+	numero_valorTotal real,
+	numero_qtdSalgados int,
+	numero_qtdDoces int,
+	numero_valorBolo real
 );
 
 create table fotografo
 (
 	id serial primary key,
-	horaChegada varchar(20),
-	horaSaida varchar(20),
-	preco real,
-	email varchar(100),
-	telefone varchar(30),
-	linkParaRedeSocial varchar(100)
+	txt_horaChegada varchar(20),
+	txt_horaSaida varchar(20),
+	numero_preco real,
+	txt_email varchar(100),
+	txt_telefone varchar(30),
+	txt_linkParaRedeSocial varchar(100)
 );
 
 create table cerimonia
 (
 	id serial primary key,	
-	dataHora date,       
+	dt_dataHora date,       
 	
 	id_localizacao int references localizacao(id),
 	id_buffet int references buffet(id),
@@ -42,28 +43,28 @@ create table cerimonia
 create table presente
 (
 	id serial primary key,
-	nome varchar(50),
+	txt_nome varchar(50),
 	categoria varchar(50),
-	descricao varchar(50),	
-	ondeEncontrar varchar(50),
+	txt_descricao varchar(50),	
+	txt_ondeEncontrar varchar(50),
 	id_cerimonia int references cerimonia(id)
 );
 
 create table noivo
 (
 	id serial primary key,
-	nome varchar(100),
-	email varchar(100),
-	senha varchar(100),
-	telefone varchar(30),
+	txt_nome varchar(100),
+	txt_email varchar(100),
+	txt_senha varchar(100),
+	txt_telefone varchar(30),
 	id_cerimonia int references cerimonia(id)
 );
 
 create table convidado
 (
 	id serial primary key,
-	nome varchar(100),
-	email varchar(100),
-	telefone varchar(30),
+	txt_nome varchar(100),
+	txt_email varchar(100),
+	txt_telefone varchar(30),
 	id_cerimonia int references cerimonia(id)
 );

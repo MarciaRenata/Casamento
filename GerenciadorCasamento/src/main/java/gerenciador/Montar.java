@@ -18,7 +18,7 @@ public class Montar
 
     public static Localizacao montarLocal()
     {
-        Localizacao l = new Localizacao("lagoa dos gatos", "olinda", "cajueiro", "52040090", 157);
+        Localizacao l = new Localizacao("lagoa dos gatos", "olinda", "b", "cajueiro", "52040090", 157);
         return l;
     }
 
@@ -77,17 +77,21 @@ public class Montar
     {
         //transforma uma data String em um date
         Date data = new Date();
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");       
+        java.sql.Timestamp timestamp = null;
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");       
         
         try
         {
-            data = df.parse("25/12/1920"); //parse: string pra date ; format: date para string
-        } catch (Exception ex)
+            data = df.parse("25/12/1920 12:45:53"); //parse: string pra date ; format: date para string
+            timestamp = new java.sql.Timestamp(data.getTime());
+        
+        } 
+        catch (Exception ex)
         {
             ex.printStackTrace();
         }       
 
-        c.setData(data);
+        c.setData(timestamp);
         c.setConvidados(convidados);
         c.setBuffet(b);
         c.setFotografo(f);
@@ -95,7 +99,7 @@ public class Montar
         c.setPresentes(presentes);
         c.setUsuarios(casal);
         
-        System.out.println("dataaaaaaaaaaaaaa na cerimonia: " + df.format(c.getData()));
+        System.out.println("dataaaaaaaaaaaaaa na cerimonia: " + timestamp);
 
         return c;
     }

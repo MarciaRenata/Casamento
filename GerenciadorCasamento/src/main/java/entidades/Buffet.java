@@ -14,19 +14,19 @@ public class Buffet implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column
+    @Column(name = "txt_fornecedor")
     private String fornecedor;
     
-    @Column
+    @Column(name = "numero_valorTotal")
     private double valorTotal;
     
-    @Column
+    @Column(name = "numero_qtdSalgados")
     private int qtdSalgados;
     
-    @Column
+    @Column(name = "numero_qtdDoces")
     private int qtdDoces;
     
-    @Column
+    @Column(name = "numero_valorBolo")
     private double valorBolo;
 
     public Buffet()

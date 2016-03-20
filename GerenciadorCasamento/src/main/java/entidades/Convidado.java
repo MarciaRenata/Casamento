@@ -18,13 +18,13 @@ public class Convidado implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     
-    @Column
+    @Column(name = "txt_nome")
     String nome;
     
-    @Column
+    @Column(name = "txt_email")
     String email;
     
-    @Column
+    @Column(name = "txt_telefone")
     String telefone;
     
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

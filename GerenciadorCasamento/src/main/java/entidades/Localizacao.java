@@ -15,30 +15,34 @@ public class Localizacao implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(name = "txt_logradouro")
     private String logradouro;
 
-    @Column
+    @Column(name = "txt_bairro")
     private String bairro;
 
-    @Column
+    @Column(name = "txt_cidade")
     private String cidade;
+    
+    @Column(name = "txt_complemento")
+    private String complemento;
 
-    @Column
+    @Column(name = "txt_cep")
     private String cep;
 
-    @Column
+    @Column(name = "numero_numero")
     private int numero;
 
     public Localizacao()
     {
     }
 
-    public Localizacao(String logradouro, String cidade, String bairro, String cep, int numero)
+    public Localizacao(String logradouro, String cidade, String bairro, String complemento, String cep, int numero)
     {
         this.logradouro = logradouro;
         this.bairro = bairro;
         this.cidade = cidade;
+        this.complemento = complemento;
         this.cep = cep;
         this.numero = numero;
     }
@@ -112,5 +116,17 @@ public class Localizacao implements Serializable
     {
         this.cidade = cidade;
     }
+
+    public String getComplemento()
+    {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento)
+    {
+        this.complemento = complemento;
+    }
+    
+    
     
 }

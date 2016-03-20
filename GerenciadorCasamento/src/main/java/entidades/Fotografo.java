@@ -14,22 +14,22 @@ public class Fotografo implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
-    @Column
+    @Column(name = "numero_preco")
     private double preco;
     
-    @Column
+    @Column(name = "txt_horaChegada")
     private String horaChegada;
     
-    @Column
+    @Column(name = "txt_horaSaida")
     private String horaSaida;
     
-    @Column
+    @Column(name = "txt_email")
     private String email;
     
-    @Column
+    @Column(name = "txt_telefone")
     private String telefone;
     
-    @Column
+    @Column(name = "txt_linkParaRedeSocial")
     private String linkParaRedeSocial;
 
     public Fotografo()

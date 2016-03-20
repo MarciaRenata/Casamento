@@ -24,8 +24,8 @@ public class Cerimonia implements Serializable
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
-    @Temporal(TemporalType.DATE)
+    @Column(name = "dt_dataHora")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dataHora; //mudar para date   
 
     //Relacionamentos:

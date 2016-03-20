@@ -11,26 +11,26 @@ Roupa
 ADICIONAR
 	1. Daminha de honra.
 	2. Lista de telefones.(Residencial, comercial, celula ) - ENUM 
-	4. Questão da roupa. ANALISAR
-	5. (EquipeDeMidia) Mais fotógrafo e filmador. - Adicionar uma lista de fotografo 
+	4. Questï¿½o da roupa. ANALISAR
+	5. (EquipeDeMidia) Mais fotï¿½grafo e filmador. - Adicionar uma lista de fotografo 
 	6. Colocar cidade - atributo string OK 
 	7. Entidade estado, como todos os estados do brasil. Que iria listar. 
 	8. Complemento, atributo string. 
-	9. Entidade loja (lista de lojas). Campos : Nome, chave estrangeira para localização. 
+	9. Entidade loja (lista de lojas). Campos : Nome, chave estrangeira para localizaï¿½ï¿½o. 
 	10. Entidade ?(doces, salgados, bebidas). Campos : Nome, valor, quantidade. - ENUM 
-	12. Convidado. Campos: nome, (qtd_Senhas). Saber a quantidade de convidados. Mapeamento pra saber quantas pessoas vão ter no casamento.
+	12. Convidado. Campos: nome, (qtd_Senhas). Saber a quantidade de convidados. Mapeamento pra saber quantas pessoas vï¿½o ter no casamento.
 	13. Padrinhos ok
 
 ALTERAR
 ok Ray	1. Cidade como atributo texto.
-ok Ray	2. Categoria, colocar como enumeração p presente (relacionando os números) ou uma entidade.
+ok Ray	2. Categoria, colocar como enumeraï¿½ï¿½o p presente (relacionando os nï¿½meros) ou uma entidade.
 ok Ray	3. Usuario.class -> Chamar de noivo.class. 
 ok Ray	4. Rua tem que ser chamado de logradouro. 
-	5. Nome do atributo tem que ser diferente do nome do banco. Add padrão
+ok Ray	5. Nome do atributo tem que ser diferente do nome do banco. Add padrï¿½o
 ok Ray	6. Na cerimonia tem que tirar o nome do objeto id_fotografo para fotografo, da mesma forma para os outros.
-	7. Habilitar o LAZY. Pelo eclipse link ele não habilita. Tem que procurar como ajeitar o Lazy
-ok Ray(FALTA HORA)	8. Nos horários tirar o tipo string e colocar date.
-ok Ray	9. Alteração nas listas (padrão expert)
+	7. Habilitar o LAZY. Pelo eclipse link ele nï¿½o habilita. Tem que procurar como ajeitar o Lazy
+ok Ray(FALTA HORA - bug)	8. Nos horï¿½rios tirar o tipo string e colocar date.
+ok Ray	9. Alteraï¿½ï¿½o nas listas (padrï¿½o expert)
 ok Ray	10. Tirar o Conexao (coloca no main)
 
 String -> txt_nomeCampo
