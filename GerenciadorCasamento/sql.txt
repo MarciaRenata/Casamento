@@ -33,7 +33,7 @@ create table fotografo
 create table cerimonia
 (
 	id serial primary key,	
-	dt_dataHora date,       
+	dt_dataHora timestamp,       
 	
 	id_localizacao int references localizacao(id),
 	id_buffet int references buffet(id),
