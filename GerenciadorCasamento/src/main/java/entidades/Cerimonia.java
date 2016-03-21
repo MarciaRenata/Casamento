@@ -37,10 +37,6 @@ public class Cerimonia implements Serializable
     @JoinColumn(name = "id_buffet", referencedColumnName = "id")
     private Buffet buffet;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "id_fotografo", referencedColumnName = "id")
-    private Fotografo fotografo;
-
     //lista de presentes que o casal cria
     @OneToMany(mappedBy = "cerimonia", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL, orphanRemoval = true)
@@ -51,16 +47,22 @@ public class Cerimonia implements Serializable
             cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Noivo> usuarios;
 
-    //uma cerimonia to many usuarios, pois o casal pode editar a cerimonia
+    //uma cerimonia to many convidados
     @OneToMany(mappedBy = "cerimonia", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Convidado> convidados;
 
+    //uma cerimonia tem uma equipe de midia (varios produtores de midia - fotografos, filmagens)
+    @OneToMany(mappedBy = "cerimonia", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProdutorDeMidia> equipeDeMidia;    
+    
     public Cerimonia()
     {
         presentes = new ArrayList<>();
         usuarios = new ArrayList<>();
         convidados = new ArrayList<>();
+        equipeDeMidia = new ArrayList<>();
     }
 
     public Date getData()
@@ -101,16 +103,6 @@ public class Cerimonia implements Serializable
     public void setBuffet(Buffet buffet)
     {
         this.buffet = buffet;
-    }
-
-    public Fotografo getFotografo()
-    {
-        return fotografo;
-    }
-
-    public void setFotografo(Fotografo fotografo)
-    {
-        this.fotografo = fotografo;
     }
 
     public List<Presente> getPresentes()
@@ -161,5 +153,21 @@ public class Cerimonia implements Serializable
                 convidados.add(convidado);
             }
         }
+    }
+    
+    public void setEquipeDeMidia(List<ProdutorDeMidia> novaEquipe)
+    {
+        for (ProdutorDeMidia produtor : novaEquipe)
+        {
+            if(!equipeDeMidia.contains(produtor))
+            {
+                equipeDeMidia.add(produtor);
+            }
+        }
+    }
+    
+    public List<ProdutorDeMidia> getEquipeDeMidia()
+    {
+        return equipeDeMidia;
     }
 }

@@ -1,8 +1,11 @@
 package entidades;
 
+import enumeracoes.EstadosDoBrasil;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,13 +35,17 @@ public class Localizacao implements Serializable
 
     @Column(name = "numero_numero")
     private int numero;
+    
+    @Enumerated(EnumType.STRING)
+    EstadosDoBrasil estado;
 
     public Localizacao()
     {
     }
 
-    public Localizacao(String logradouro, String cidade, String bairro, String complemento, String cep, int numero)
+    public Localizacao(EstadosDoBrasil estado, String cidade, String bairro, String logradouro, String complemento, String cep, int numero)
     {
+        this.estado = estado;
         this.logradouro = logradouro;
         this.bairro = bairro;
         this.cidade = cidade;
@@ -126,7 +133,14 @@ public class Localizacao implements Serializable
     {
         this.complemento = complemento;
     }
-    
-    
-    
+
+    public EstadosDoBrasil getEstado()
+    {
+        return estado;
+    }
+
+    public void setEstado(EstadosDoBrasil estado)
+    {
+        this.estado = estado;
+    }    
 }

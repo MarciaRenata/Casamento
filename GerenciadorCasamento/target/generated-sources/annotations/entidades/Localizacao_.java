@@ -1,10 +1,11 @@
 package entidades;
 
+import enumeracoes.EstadosDoBrasil;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-03-20T17:49:03")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-03-21T00:21:23")
 @StaticMetamodel(Localizacao.class)
 public class Localizacao_ { 
 
@@ -13,6 +14,7 @@ public class Localizacao_ {
     public static volatile SingularAttribute<Localizacao, String> cidade;
     public static volatile SingularAttribute<Localizacao, String> complemento;
     public static volatile SingularAttribute<Localizacao, String> cep;
+    public static volatile SingularAttribute<Localizacao, EstadosDoBrasil> estado;
     public static volatile SingularAttribute<Localizacao, String> logradouro;
     public static volatile SingularAttribute<Localizacao, Integer> numero;
 

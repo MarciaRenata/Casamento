@@ -1,12 +1,14 @@
 package entidades;
 
 import entidades.Cerimonia;
-import entidades.PresenteCategoria;
+import entidades.Loja;
+import enumeracoes.PresenteCategoria;
 import javax.annotation.Generated;
+import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-03-20T17:49:03")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-03-21T00:21:23")
 @StaticMetamodel(Presente.class)
 public class Presente_ { 
 
@@ -15,6 +17,7 @@ public class Presente_ {
     public static volatile SingularAttribute<Presente, String> nome;
     public static volatile SingularAttribute<Presente, String> ondeEncontrar;
     public static volatile SingularAttribute<Presente, Cerimonia> cerimonia;
+    public static volatile ListAttribute<Presente, Loja> lojas;
     public static volatile SingularAttribute<Presente, String> descricao;
 
 }

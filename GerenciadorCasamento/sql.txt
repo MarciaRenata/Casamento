@@ -6,6 +6,7 @@ create table localizacao
 	txt_bairro varchar(100),
 	txt_cep varchar(100),
         txt_cidade varchar(100),
+        estado varchar(5),
 	numero_numero int 
 );
 
@@ -19,25 +20,25 @@ create table buffet
 	numero_valorBolo real
 );
 
-create table fotografo
-(
-	id serial primary key,
-	txt_horaChegada varchar(20),
-	txt_horaSaida varchar(20),
-	numero_preco real,
-	txt_email varchar(100),
-	txt_telefone varchar(30),
-	txt_linkParaRedeSocial varchar(100)
-);
-
 create table cerimonia
 (
 	id serial primary key,	
 	dt_dataHora timestamp,       
 	
 	id_localizacao int references localizacao(id),
-	id_buffet int references buffet(id),
-	id_fotografo int references fotografo(id)
+	id_buffet int references buffet(id)
+);
+
+create table produtorDeMidia
+(
+	id serial primary key,
+	txt_horaChegada varchar(20),
+	txt_horaSaida varchar(20),
+	numero_preco real,
+	txt_email varchar(100),
+        categoria varchar(30),
+	txt_linkParaRedeSocial varchar(100),
+        id_cerimonia int references cerimonia(id)
 );
 
 create table presente
@@ -65,6 +66,27 @@ create table convidado
 	id serial primary key,
 	txt_nome varchar(100),
 	txt_email varchar(100),
-	txt_telefone varchar(30),
-	id_cerimonia int references cerimonia(id)
+	id_cerimonia int references cerimonia(id)        
 );
+
+create table telefone
+(
+	id serial primary key,
+	categoria varchar(30),
+	txt_ddd varchar(5),
+	txt_numero varchar(15),
+        id_convidado int references convidado(id),
+        id_produtorDeMidia int references produtorDeMidia(id)
+);
+
+create table loja
+(
+	id serial primary key,	
+	txt_nome varchar(50),       
+	
+	id_localizacao int references localizacao(id),
+	id_telefone int references telefone(id),
+        id_presente int references loja(id)
+);
+
+

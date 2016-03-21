@@ -2,6 +2,9 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Convidado implements Serializable
@@ -23,24 +27,29 @@ public class Convidado implements Serializable
     
     @Column(name = "txt_email")
     String email;
-    
-    @Column(name = "txt_telefone")
-    String telefone;
-    
+           
+    //muitos convidados vao a uma cerimonia
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_cerimonia", referencedColumnName = "id")
     private Cerimonia cerimonia;
+    
+    //um convidado, possui muitos telefones
+    @OneToMany(mappedBy = "convidado", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Telefone> telefones;
 
     public Convidado()
     {
+        telefones = new ArrayList<Telefone>();
     }
 
-    public Convidado(Cerimonia c,String nome, String email, String telefone)
+    public Convidado(Cerimonia c,String nome, String email)
     {
         this.cerimonia = c;
         this.nome = nome;
         this.email = email;
-        this.telefone = telefone;
+        
+        telefones = new ArrayList<Telefone>();
     }
 
     public Cerimonia getCerimonia()
@@ -82,16 +91,21 @@ public class Convidado implements Serializable
         this.email = email;
     }
 
-    public String getTelefone()
+    //PADRAO EXPERT
+    public void setTelefones(List<Telefone> telefonesNovos)
     {
-        return telefone;
+        
+        for (Telefone telefone : telefonesNovos)
+        {
+            if(!telefones.contains(telefone))
+            {
+                telefones.add(telefone);
+            }
+        }
     }
-
-    public void setTelefone(String telefone)
+    
+    public List<Telefone> getTelegones()
     {
-        this.telefone = telefone;
+        return telefones;
     }
-    
-    
-    
 }

@@ -3,7 +3,7 @@ package testes;
 import entidades.Buffet;
 import entidades.Cerimonia;
 import entidades.Convidado;
-import entidades.Fotografo;
+import entidades.ProdutorDeMidia;
 import entidades.Localizacao;
 import entidades.Presente;
 import entidades.Noivo;
@@ -32,15 +32,15 @@ public class Main
         
         Localizacao l = Montar.montarLocal();
         Buffet b = Montar.montarBuffet();
-        Fotografo f = Montar.montarFotografo();
 
         Cerimonia c = new Cerimonia();
 
         List<Presente> presentes = Montar.montarListaPresentes(c);
         List<Noivo> casal = Montar.montarCasal(c);
         List<Convidado> convidados = Montar.convidarPessoas(c);
+        List<ProdutorDeMidia> produtoresDeMidia = Montar.montarProdutorMidia(c);
 
-        c = Montar.montarCerimonia(c, l, b, f, presentes, casal, convidados);
+        c = Montar.montarCerimonia(c, l, b, produtoresDeMidia, presentes, casal, convidados);
 
         try
         {
