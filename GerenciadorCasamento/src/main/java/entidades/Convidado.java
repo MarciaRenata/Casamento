@@ -1,12 +1,15 @@
 
 package entidades;
 
+import enumeracoes.ConvidadoCategoria;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +30,9 @@ public class Convidado implements Serializable
     
     @Column(name = "txt_email")
     String email;
+    
+    @Enumerated(EnumType.STRING)
+    ConvidadoCategoria categoria;
            
     //muitos convidados vao a uma cerimonia
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -43,13 +49,24 @@ public class Convidado implements Serializable
         telefones = new ArrayList<Telefone>();
     }
 
-    public Convidado(Cerimonia c,String nome, String email)
+    public Convidado(Cerimonia c,String nome, String email, ConvidadoCategoria cc)
     {
         this.cerimonia = c;
         this.nome = nome;
         this.email = email;
+        categoria = cc;
         
         telefones = new ArrayList<Telefone>();
+    }
+
+    public ConvidadoCategoria getCategoria()
+    {
+        return categoria;
+    }
+
+    public void setCategoria(ConvidadoCategoria categoria)
+    {
+        this.categoria = categoria;
     }
 
     public Cerimonia getCerimonia()

@@ -3,6 +3,7 @@ package entidades;
 import enumeracoes.ProdutorDeMidiaCategoria;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class ProdutorDeMidia implements Serializable
@@ -26,13 +29,11 @@ public class ProdutorDeMidia implements Serializable
     
     @Column(name = "numero_preco")
     private double preco;
-    
-    @Column(name = "txt_horaChegada")
-    private String horaChegada;
-    
-    @Column(name = "txt_horaSaida")
-    private String horaSaida;
-    
+        
+    @Column(name = "dt_dataEHoraChegada")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataEHoraChegada; //mudar para date   
+        
     @Column(name = "txt_email")
     private String email;
     
@@ -55,13 +56,12 @@ public class ProdutorDeMidia implements Serializable
         telefones = new ArrayList<>();
     }
 
-    public ProdutorDeMidia(Cerimonia c, ProdutorDeMidiaCategoria categoria, double preco, String horaChegada, String horaSaida, String email, String linkParaRedeSocial)
+    public ProdutorDeMidia(Cerimonia c, ProdutorDeMidiaCategoria categoria, double preco, Date horaChegada, String email, String linkParaRedeSocial)
     {
         this.cerimonia = c;
         this.categoria = categoria;
         this.preco = preco;
-        this.horaChegada = horaChegada;
-        this.horaSaida = horaSaida;
+        this.dataEHoraChegada = horaChegada;
         this.email = email;
         this.linkParaRedeSocial = linkParaRedeSocial;
         
@@ -88,26 +88,16 @@ public class ProdutorDeMidia implements Serializable
         this.preco = preco;
     }
 
-    public String getHoraChegada()
+    public Date getDataEHoraChegada()
     {
-        return horaChegada;
+        return dataEHoraChegada;
     }
 
-    public void setHoraChegada(String horaChegada)
+    public void setDataEHoraChegada(Date dataEHoraChegada)
     {
-        this.horaChegada = horaChegada;
+        this.dataEHoraChegada = dataEHoraChegada;
     }
-
-    public String getHoraSaida()
-    {
-        return horaSaida;
-    }
-
-    public void setHoraSaida(String horaSaida)
-    {
-        this.horaSaida = horaSaida;
-    }
-
+    
     public String getEmail()
     {
         return email;

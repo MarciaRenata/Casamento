@@ -9,6 +9,7 @@ import entidades.Loja;
 import entidades.Presente;
 import entidades.Noivo;
 import entidades.Telefone;
+import enumeracoes.ConvidadoCategoria;
 import enumeracoes.EstadosDoBrasil;
 import enumeracoes.PresenteCategoria;
 import enumeracoes.ProdutorDeMidiaCategoria;
@@ -69,10 +70,26 @@ public class Montar
     
     public static List<ProdutorDeMidia> montarProdutorMidia(Cerimonia c)
     {
-        ProdutorDeMidia f = new ProdutorDeMidia(c, ProdutorDeMidiaCategoria.fotografo, 2.000, "20:00", "3:00", "paulo@hotmail.com", "https://www.flickr.com");
+        //transforma uma hora String em um date
+        Date hora = new Date();
+        java.sql.Timestamp timestamp = null;
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");       
+        
+        try
+        {
+            hora = df.parse("26/12/1920 10:45:53"); //parse: string pra date ; format: date para string
+            timestamp = new java.sql.Timestamp(hora.getTime());
+        
+        } 
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }    
+        
+        ProdutorDeMidia f = new ProdutorDeMidia(c, ProdutorDeMidiaCategoria.fotografo, 2.000, hora,"paulo@hotmail.com", "https://www.flickr.com");
         f.setTelefones(montarTelefones(f));   
         
-        ProdutorDeMidia f2 = new ProdutorDeMidia(c, ProdutorDeMidiaCategoria.filmografia, 1.000, "20:00", "3:00", "yuri@hotmail.com", "https://www.flickr.com");
+        ProdutorDeMidia f2 = new ProdutorDeMidia(c, ProdutorDeMidiaCategoria.filmografia, 1.000, hora, "yuri@hotmail.com", "https://www.flickr.com");
         f.setTelefones(montarTelefones(f2));   
         
         List<ProdutorDeMidia> produtores = new ArrayList<>();
@@ -99,10 +116,10 @@ public class Montar
 
     public static List<Convidado> convidarPessoas(Cerimonia c)
     {
-        Convidado u1 = new Convidado(c, "Douglas", "paulomenzs@gmail.com");
+        Convidado u1 = new Convidado(c, "Douglas", "paulomenzs@gmail.com", ConvidadoCategoria.familia);
         u1.setTelefones(montarTelefones(u1));
         
-        Convidado u2 = new Convidado(c, "Edmilson", "rayanasls@gmail.com");        
+        Convidado u2 = new Convidado(c, "Edmilson", "rayanasls@gmail.com", ConvidadoCategoria.amigo);        
         u2.setTelefones(montarTelefones(u2));
         
         List<Convidado> convidados = new ArrayList<Convidado>();
@@ -142,7 +159,7 @@ public class Montar
 
     public static Cerimonia montarCerimonia(Cerimonia c, Localizacao l, Buffet b, List<ProdutorDeMidia> produtores, List<Presente> presentes, List<Noivo> casal, List<Convidado> convidados)
     {
-        //transforma uma data String em um date
+        //transforma uma hora String em um date
         Date data = new Date();
         java.sql.Timestamp timestamp = null;
         SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");       

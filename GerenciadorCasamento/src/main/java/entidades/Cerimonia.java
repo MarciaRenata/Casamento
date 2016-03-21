@@ -26,7 +26,7 @@ public class Cerimonia implements Serializable
 
     @Column(name = "dt_dataHora")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataHora; //mudar para date   
+    private Date dataHora; 
 
     //Relacionamentos:
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)

@@ -32,8 +32,7 @@ create table cerimonia
 create table produtorDeMidia
 (
 	id serial primary key,
-	txt_horaChegada varchar(20),
-	txt_horaSaida varchar(20),
+	dt_dataEHoraChegada timestamp,
 	numero_preco real,
 	txt_email varchar(100),
         categoria varchar(30),
@@ -66,6 +65,7 @@ create table convidado
 	id serial primary key,
 	txt_nome varchar(100),
 	txt_email varchar(100),
+        categoria varchar(30),
 	id_cerimonia int references cerimonia(id)        
 );
 
@@ -86,7 +86,7 @@ create table loja
 	
 	id_localizacao int references localizacao(id),
 	id_telefone int references telefone(id),
-        id_presente int references loja(id)
+        id_presente int references presente(id)
 );
 
 
