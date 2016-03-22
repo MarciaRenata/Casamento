@@ -1,45 +1,41 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Buffet implements Serializable
-{
+{   
+    //nome, valor, qtd, tipo - enum, loja
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    
-    @Column(name = "txt_fornecedor")
-    private String fornecedor;
+    private int id;    
     
     @Column(name = "numero_valorTotal")
-    private double valorTotal;
+    private double valorTotalGasto;    
     
-    @Column(name = "numero_qtdSalgados")
-    private int qtdSalgados;
-    
-    @Column(name = "numero_qtdDoces")
-    private int qtdDoces;
-    
-    @Column(name = "numero_valorBolo")
-    private double valorBolo;
+//    @OneToMany(mappedBy = "buffet", fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<ComesBebes> comesEBebes;
 
     public Buffet()
     {
     }
 
-    public Buffet(String fornecedor, double valorTotal, int qtdSalgados, int qtdDoces, double valorBolo)
+    public Buffet(double valorTotalGasto)
     {
-        this.fornecedor = fornecedor;
-        this.valorTotal = valorTotal;
-        this.qtdSalgados = qtdSalgados;
-        this.qtdDoces = qtdDoces;
-        this.valorBolo = valorBolo;
+        this.valorTotalGasto = valorTotalGasto;
     }
 
     public int getId()
@@ -52,55 +48,16 @@ public class Buffet implements Serializable
         this.id = id;
     }
 
-    public String getFornecedor()
+    public double getValorTotalGasto()
     {
-        return fornecedor;
+        return valorTotalGasto;
     }
 
-    public void setFornecedor(String fornecedor)
+    public void setValorTotalGasto(double valorTotalGasto)
     {
-        this.fornecedor = fornecedor;
-    }
-
-    public double getValorTotal()
-    {
-        return valorTotal;
-    }
-
-    public void setValorTotal(double valorTotal)
-    {
-        this.valorTotal = valorTotal;
-    }
-
-    public int getQtdSalgados()
-    {
-        return qtdSalgados;
-    }
-
-    public void setQtdSalgados(int qtdSalgados)
-    {
-        this.qtdSalgados = qtdSalgados;
-    }
-
-    public int getQtdDoces()
-    {
-        return qtdDoces;
-    }
-
-    public void setQtdDoces(int qtdDoces)
-    {
-        this.qtdDoces = qtdDoces;
-    }
-
-    public double getValorBolo()
-    {
-        return valorBolo;
-    }
-
-    public void setValorBolo(double valorBolo)
-    {
-        this.valorBolo = valorBolo;
+        this.valorTotalGasto = valorTotalGasto;
     }
     
     
+
 }

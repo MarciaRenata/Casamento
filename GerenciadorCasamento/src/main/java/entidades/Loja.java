@@ -46,6 +46,14 @@ public class Loja implements Serializable
         this.telefone = telefone;
         this.localizacao = localizacao;
     }
+    
+    public Loja(String nome, Telefone telefone, Localizacao localizacao) //buffet usa esse constutor
+    {
+        
+        this.nome = nome;
+        this.telefone = telefone;
+        this.localizacao = localizacao;
+    }
         
     public int getId()
     {

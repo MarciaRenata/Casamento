@@ -9,6 +9,7 @@ import entidades.Loja;
 import entidades.Presente;
 import entidades.Noivo;
 import entidades.Telefone;
+import enumeracoes.ComidaBebidaCategoria;
 import enumeracoes.ConvidadoCategoria;
 import enumeracoes.EstadosDoBrasil;
 import enumeracoes.PresenteCategoria;
@@ -29,7 +30,11 @@ public class Montar
 
     public static Buffet montarBuffet()
     {
-        Buffet b = new Buffet("lalalalala", 1.000, 1000, 1000, 700.00);
+        Telefone t1 = new Telefone(TelefoneCategoria.empresarial, "81", "87654328");          
+        Localizacao local = new Localizacao(EstadosDoBrasil.PE,"barroso", "recife", "predio", "wee", "345679", 504);        
+        Loja loja = new Loja("Delicata", t1, local);  
+        
+        Buffet b = new Buffet(200.0);
         return b;
     }
     

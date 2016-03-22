@@ -13,11 +13,7 @@ create table localizacao
 create table buffet
 (
 	id serial primary key,
-	txt_fornecedor varchar(100),
-	numero_valorTotal real,
-	numero_qtdSalgados int,
-	numero_qtdDoces int,
-	numero_valorBolo real
+	numero_valorTotal real	
 );
 
 create table cerimonia
